@@ -14,6 +14,9 @@ app.use(express.json())      // Parse incoming JSON request bodies
 const authRoutes = require('./routes/auth')
 app.use('/api/auth',authRoutes)
 
+const calculationRoutes = require('./routes/calculations');
+app.use('/api/calculations', calculationRoutes);
+
 // Test route — just to confirm server works
 app.get('/',(req,res) => {
     res.json({message:'LoanLens API is running'})

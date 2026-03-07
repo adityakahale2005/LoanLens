@@ -63,7 +63,7 @@ router.post('/login', async (req,res) => {
         const { email , password } = req.body
 
          // Step 1: Find user by email
-         const User = await User.findOne({ email })
+         const user = await User.findOne({ email })
          if(!user){
             return res.status(400).json({ message: 'Invalid email or password'})
          }
@@ -79,7 +79,7 @@ router.post('/login', async (req,res) => {
         const token = jwt.sign(
             { userId: user._id },
             process.env.JWT_SECRET,
-            { expire:'7d' }
+            { expiresIn:'7d' }
         )
 
         res.json({
