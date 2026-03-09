@@ -76,6 +76,11 @@ export default function Dashboard() {
             onClick={handleLogout}
             className="bg-red-600 hover:bg-red-500 px-4 py-2 rounded-lg text-sm transition-all"
           >Logout</button>
+          <button
+            onClick={() => navigate('/compare')}
+            className="bg-blue-700 hover:bg-blue-600 px-4 py-2 rounded-lg text-sm transition-all">
+            Compare Loans
+          </button>
         </div>
       </nav>
 

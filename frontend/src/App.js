@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import History from './pages/History';
+import Compare from './pages/Compare';
 
 // Wrapper that blocks access if not logged in
 function ProtectedRoute({ children }) {
@@ -20,6 +21,9 @@ function AppRoutes() {
       <Route path="/history" element={
         <ProtectedRoute><History /></ProtectedRoute>
       } />
+      <Route path="/compare" element={
+  <ProtectedRoute><Compare /></ProtectedRoute>
+} />
     </Routes>
   );
 }

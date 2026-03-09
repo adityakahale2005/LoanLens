@@ -47,11 +47,34 @@ export default function History() {
       <div className="max-w-5xl mx-auto p-6">
         <h2 className="text-2xl font-bold text-blue-900 mb-6">Calculation History</h2>
 
-        {loading ? (
-          <p className="text-gray-500">Loading...</p>
-        ) : calculations.length === 0 ? (
-          <p className="text-gray-500">No calculations yet. Go calculate your first EMI!</p>
-        ) : (
+       {loading ? (
+  <div className="space-y-4">
+    {[1,2,3].map(i => (
+      <div key={i} className="bg-white rounded-2xl shadow p-5 animate-pulse">
+        <div className="grid grid-cols-4 gap-4">
+          {[1,2,3,4].map(j => (
+            <div key={j}>
+              <div className="h-3 bg-gray-200 rounded mb-2 w-20"></div>
+              <div className="h-5 bg-gray-300 rounded w-24"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+) : calculations.length === 0 ? (
+  <div className="text-center py-16">
+    <p className="text-6xl mb-4">📊</p>
+    <p className="text-gray-500 text-lg font-medium">No calculations yet</p>
+    <p className="text-gray-400 text-sm mt-1">Go calculate your first EMI!</p>
+    <button
+      onClick={() => navigate('/dashboard')}
+      className="mt-4 bg-blue-900 text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-800"
+    >
+      Calculate Now
+    </button>
+  </div>
+)  : (
           <div className="space-y-4">
             {calculations.map((c) => (
               <div key={c._id} className="bg-white rounded-2xl shadow p-5 flex justify-between items-center">
